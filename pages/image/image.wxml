@@ -1,0 +1,30 @@
+<loading hidden="{{loadingHidden}}">正在加载</loading>
+<scroll-view scroll-y="true" bindscrolltoupper = "bindscrolltoupper" bindscrolltolower="lower" style='height:100%'>
+<block wx:for="{{list}}" wx:key="{{index}}">
+<view class="divLine"></view>
+<view class="containsView">
+<view class="topContainsView">
+    <image class="profileImage" src ="{{item.profile_image}}"/>
+    <view class="topRightView">
+    <text class="topRightName">{{item.name}}</text>
+    <text class="topRightTime">{{item.create_time}}</text>
+    </view>
+</view>
+<view class="images">
+<!-- wxml内标签的自定义属性能够data-随便什么 能够进入dataset的对象里面,以便发生事件后api接口调用到以后里面的数据能够使用-->
+<image src="{{item.image0}}" mode='scaleToFill' data-imgUrl="{{item.image0}}"  bindtap="previewImg"></image>
+<text class="centerContent">{{item.text}}</text>
+</view>
+<view class="bottomView">
+<view class="bottomItemView">
+<image class="bottomItemImage" src="../../image/ding.png"/>
+<text class="bottomItemText"></text>
+<view class="judge">
+<text class="good">赞：{{item.love}}</text>
+<text class="bad">踩：{{item.hate}}</text>
+</view>
+</view>
+</view>
+</view>
+</block>
+</scroll-view>
